@@ -7,3 +7,8 @@ del Dictonary["Name2"] #Removing
 del Dictonary["Name3"]
 Dictonary["Name4"] = "Melba" #Replacing
 print(Dictonary)
+print("")
+Fullname = input("Enter your full name:  ")
+
+Dictonary.update({"Name5": Fullname})
+print(Dictonary)
