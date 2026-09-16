@@ -31,13 +31,14 @@ while 1:
         UR = int(input("What to Replace?: "))
         URP = int(input("What to Replace it with?: "))
         if UR not in List:
+            print("")
             print("Item not in list!")
         for i in range(len(List)):
             if(List[i] == UR):
                 List[i] = URP
-
     elif UI == "4":
         List.sort()
+        print("List sorted.")
     elif UI == "5":
         print("")
         print(List)
