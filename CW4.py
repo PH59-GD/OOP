@@ -33,4 +33,4 @@ while 1:
             CY = input("change year to: ")
             students[SC]["Name"] = CY
     elif(UI == "4"):
-        print(sudents)
+        print(students)
