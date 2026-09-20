@@ -31,6 +31,8 @@ while 1:
             students[SC]["Major"] = CM
         elif (SM == "3"):
             CY = input("change year to: ")
-            students[SC]["Name"] = CY
+            students[SC]["Year"] = CY
     elif(UI == "4"):
         print(students)
+    elif(UI == "5"):
+        break
