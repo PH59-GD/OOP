@@ -1,5 +1,5 @@
 students = {}
-
+UD = 0
 while 1:
     print("")
     print("[1] Add student")
@@ -14,11 +14,17 @@ while 1:
         N = input("Enter student name: ")
         M = input("Enter student major: ")
         Y = input("Which year?: ")
-        students.update({"S"+str(len(students)+1): {"Name": N, "Major": M, "Year":Y}})
-        print(students)
+        if(UD == 0):
+            students.update({"S"+str(len(students)+1): {"Name": N, "Major": M, "Year":Y}})
+            print(students)
+        else:
+            students.update({"S" + str(len(students) + 2): {"Name": N, "Major": M, "Year": Y}})
+            UD = 0
+            print(students)
     elif(UI == "2"):
         Sr = input("Enter student to remove: ")
         del students[Sr]
+        UD += 1
     elif(UI == "3"):
         SC = input("Which student to modify?: ")
         print("[1] Name, [2] Major, [3] Year")
