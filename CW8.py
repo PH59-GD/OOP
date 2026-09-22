@@ -3,8 +3,12 @@ Stack = []
 def Pushbook():
     UC = int(input("How many items to add?: "))
     for i in range(UC):
-        UI = int(input("What to add?(INT): "))
-        Stack[0].append(UI)
+        if (len(Stack) < 1):
+            UI = int(input("What to add?(INT): "))
+            Stack.append(UI)
+        else:
+            UI = int(input("What to add?(INT): "))
+            Stack.insert(0, UI)
 def Popbook():
     del Stack[0]
 def display():
