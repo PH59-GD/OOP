@@ -9,10 +9,12 @@ class Student:
         self.name = ""
         self.department = ""
         self.advisor = ""
+        self.Dict = {}
     def create_new_student(self):
         self.id = input("Enter student ID: ")
         self.name = input("Enter student name: ")
         self.department = input("Enter student department: ")
+        self.Dict["student"] = {"Name": self.name, "ID": self.id, "Department": self.department, "Advisor": self.advisor}
     def display_student(self):
         print("ID:", self.id)
         print("Name:", self.name)
@@ -20,12 +22,13 @@ class Student:
         print("Advisor:", self.advisor)
     def assign_advisor(self):
         print(myfaculty)
-        CF = input("Enter advisors Faculty ID number: ")
-        self.advisor = myfaculty[0]
-stu = Student()
-stu.create_new_student()
+        CF = int(input("Enter advisors Faculty ID number: "))
+        self.Dict["student"] = {"Name": self.name, "ID": self.id, "Department": self.department, "Advisor": self.advisor}
+        self.advisor = myfaculty[CF].name
+#stu = Student()
+#stu.create_new_student()
 #stu.display_student()
-mystudents.append(stu)
+#mystudents.append(stu)
 
 class Faculty:
     def __init__(self):
@@ -40,10 +43,10 @@ class Faculty:
         print("Name:", self.name)
         print("Department:", self.department)
         print("Faculty ID:", self.id)
-Fac = Faculty()
-Fac.create_new_faculty()
+#Fac = Faculty()
+#Fac.create_new_faculty()
 #Fac.display_faculty()
-myfaculty.append(Fac)
+#myfaculty.append(Fac)
 
 class Courses:
     def __init__(self):
@@ -64,22 +67,85 @@ class Courses:
         print(mystudents)
         SC = input("Enter student ID to add to course: ")
         self.students.append(mystudents[0])
-Cou = Courses()
-Cou.create_Courses()
+#Cou = Courses()
+#Cou.create_Courses()
 #Cou.display_Courses()
-mycourses.append(Cou)
-mystudents[0].assign_advisor()
-print(mystudents[0])
-mycourses[0].register_students()
-mycourses[0].display_courses()
-mystudents[0].display_student()
-myfaculty[0].display_faculty()
-'''
+#mycourses.append(Cou)
+#mystudents[0].assign_advisor()
+#print(mystudents[0])
+#mycourses[0].register_students()
+#mycourses[0].display_courses()
+#mystudents[0].display_student()
+#myfaculty[0].display_faculty()
+
 while True:
     print("")
     print("[1] Student")
     print("[2] Faculty")
     print("[3] Courses")
     print("")
-    if()
-'''
+    UC = input("Input: ")
+    if(UC == "1"):
+        while True:
+            print("")
+            print("[1] Add student")
+            print("[2] Display student")
+            print("[3] Assign advisor")
+            print("[4] Back")
+            print("")
+            UC = input("Input: ")
+            if(UC == "1"):
+                Student = Student()
+                Student.create_new_student()
+                mystudents.append(Student)
+            elif(UC == "2"):
+                SC = int(input("What Student?: "))
+                mystudents[SC].display_student()
+                #print(mystudents[0].Dict)
+            elif(UC == "3"):
+                print(mystudents)
+                SC = int(input("What student?: "))
+                mystudents[SC].assign_advisor()
+            elif(UC == "4"):
+                break
+    elif(UC == "2"):
+        while True:
+            print("")
+            print("[1] Add faculty")
+            print("[2] Display faculty")
+            print("[3] Back")
+            print("")
+            UC = input("Input: ")
+            if(UC == "1"):
+                Faculty = Faculty()
+                Faculty.create_new_faculty()
+                myfaculty.append(Faculty)
+            elif(UC == "2"):
+                SC = input("What faculty?: ")
+                SC.display_faculty()
+                #print(mystudents[0].Dict)
+            elif(UC == "3"):
+                break
+    elif(UC == "3"):
+        while True:
+            print("")
+            print("[1] Add course")
+            print("[2] Display courses")
+            print("[3] Register students")
+            print("[4] Back")
+            print("")
+            UC = input("Input: ")
+            if(UC == "1"):
+                Courses = Courses()
+                Courses.create_Courses()
+                mycourses.append(Courses)
+            elif(UC == "2"):
+                SC = input("What Course?: ")
+                SC.display_course()
+                #print(mystudents[0].Dict)
+            elif(UC == "3"):
+                print(mystudents)
+                SC = input("What student?: ")
+                SC.register_students()
+            elif(UC == "4"):
+                break
