@@ -25,16 +25,12 @@ class Student:
         CF = int(input("Enter advisors Faculty ID number: "))
         self.Dict["student"] = {"Name": self.name, "ID": self.id, "Department": self.department, "Advisor": self.advisor}
         self.advisor = myfaculty[CF].name
-#stu = Student()
-#stu.create_new_student()
-#stu.display_student()
-#mystudents.append(stu)
-
 class Faculty:
     def __init__(self):
         self.name = ""
         self.department = ""
         self.id = ""
+        self.Courses = {}
     def create_new_faculty(self):
         self.name = input("Enter faculty name: ")
         self.department = input("Enter faculty department: ")
@@ -43,11 +39,6 @@ class Faculty:
         print("Name:", self.name)
         print("Department:", self.department)
         print("Faculty ID:", self.id)
-#Fac = Faculty()
-#Fac.create_new_faculty()
-#Fac.display_faculty()
-#myfaculty.append(Fac)
-
 class Courses:
     def __init__(self):
         self.name = ""
@@ -65,19 +56,8 @@ class Courses:
         print("Course students: ", self.students)
     def register_students(self):
         print(mystudents)
-        SC = input("Enter student ID to add to course: ")
-        self.students.append(mystudents[0])
-#Cou = Courses()
-#Cou.create_Courses()
-#Cou.display_Courses()
-#mycourses.append(Cou)
-#mystudents[0].assign_advisor()
-#print(mystudents[0])
-#mycourses[0].register_students()
-#mycourses[0].display_courses()
-#mystudents[0].display_student()
-#myfaculty[0].display_faculty()
-
+        SC = int(input("Enter student to add to course(Index Number): "))
+        self.students.append(mystudents[SC].Dict["student"]["ID"])
 while True:
     print("")
     print("[1] Student")
@@ -95,16 +75,18 @@ while True:
             print("")
             UC = input("Input: ")
             if(UC == "1"):
-                Student = Student()
-                Student.create_new_student()
-                mystudents.append(Student)
+                AT = int(input("How many courses to add?: "))
+                for i in range(AT):
+                    Student = Student()
+                    Student.create_new_student()
+                    mystudents.append(Student)
             elif(UC == "2"):
-                SC = int(input("What Student?: "))
+                SC = int(input("What Student?(Index Number): "))
                 mystudents[SC].display_student()
                 #print(mystudents[0].Dict)
             elif(UC == "3"):
                 print(mystudents)
-                SC = int(input("What student?: "))
+                SC = int(input("What student?(Index Number): "))
                 mystudents[SC].assign_advisor()
             elif(UC == "4"):
                 break
@@ -117,12 +99,14 @@ while True:
             print("")
             UC = input("Input: ")
             if(UC == "1"):
-                Faculty = Faculty()
-                Faculty.create_new_faculty()
-                myfaculty.append(Faculty)
+                AT = int(input("How many courses to add?: "))
+                for i in range(AT):
+                    Faculty = Faculty()
+                    Faculty.create_new_faculty()
+                    myfaculty.append(Faculty)
             elif(UC == "2"):
-                SC = input("What faculty?: ")
-                SC.display_faculty()
+                SC = int(input("What faculty(Index Number)?: "))
+                myfaculty[SC].display_faculty()
                 #print(mystudents[0].Dict)
             elif(UC == "3"):
                 break
@@ -136,16 +120,18 @@ while True:
             print("")
             UC = input("Input: ")
             if(UC == "1"):
-                Courses = Courses()
-                Courses.create_Courses()
-                mycourses.append(Courses)
+                AT = int(input("How many courses to add?: "))
+                for i in range(AT):
+                    Courses = Courses()
+                    Courses.create_Courses()
+                    mycourses.append(Courses)
             elif(UC == "2"):
-                SC = input("What Course?: ")
-                SC.display_course()
+                SC = int(input("What Course?(Index Number): "))
+                mycourses[SC].display_courses()
                 #print(mystudents[0].Dict)
             elif(UC == "3"):
                 print(mystudents)
-                SC = input("What student?: ")
-                SC.register_students()
+                SC = int(input("What course?(Index Number): "))
+                mycourses[SC].register_students()
             elif(UC == "4"):
                 break
