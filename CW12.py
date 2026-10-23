@@ -62,6 +62,28 @@ a_word = input()
 for line in file2:
     if a_word in line:
         print(line)
+        
 
 file2.close()
 '''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
