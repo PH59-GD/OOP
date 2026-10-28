@@ -1,0 +1,31 @@
+import streamlit as st
+from PIL import Image
+#Create my resume
+col1, col2 = st.columns((4,5))
+with col1:
+    st.title("Payton Hammel")
+    st.header("John Brown University, Freshman")
+with col2:
+    image = Image.open('Payton.jpg')
+    st.image(image, width=200)
+st.markdown("About Me")
+st.text("I am taking OOP, and Intro to CS in the fall of 2026.")
+st.divider()
+st.markdown("Qualifications")
+st.text("A certificate of proficency in the Unity Game Engine.")
+st.divider()
+st.markdown("Work Experience")
+st.text("John Brown University - Grounds Crew")
+st.text("Daily tasks include maintaining John Brown University's campus.")
+st.text("2026 - Present")
+st.divider()
+st.markdown("Projects")
+st.text("Python Game prototypes")
+st.text("")
+st.divider()
+st.markdown("**Contact Me**")
+UserName = st.text_input("Your Name: ")
+UserEmailID = st.text_input("Email ID: ")
+UserMessage = st.text_area("Your Message: ")
+st.button("Send Message")
+st.divider()
